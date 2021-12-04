@@ -16,6 +16,50 @@ char character(char, int);
 
 int main(int argc, const char * argv[])
 {
+    try//should display 'b'
+    {
+        cout<<endl <<character('a',1);
+    }
+    catch (string ex)
+    {
+        cout<<endl <<ex;
+    }
+    
+    try//should throw invalidRangeException
+    {
+        cout<<endl <<character('a',-1);
+    }
+    catch (string ex)
+    {
+        cout<<endl <<ex;
+    }
+    
+    try//should display 'Y'
+    {
+        cout<<endl <<character('Z',-1);
+    }
+    catch (string ex)
+    {
+        cout<<endl <<ex;
+    }
+    
+    try//should throw invalidCharacterException
+    {
+        cout<<endl <<character('?', 5);
+    }
+    catch (string ex)
+    {
+        cout<<endl <<ex;
+    }
+    
+    try//should throw invalidCaseException
+    {
+        cout<<endl <<character('A', 32);
+    }
+    catch (string ex)
+    {
+        cout<<endl <<ex;
+    }
     
     return 0;
 }
