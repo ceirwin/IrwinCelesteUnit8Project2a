@@ -10,7 +10,26 @@
 
 #include <iostream>
 
-int main(int argc, const char * argv[]) {
+using namespace std;
+
+char character(char, int);
+
+int main(int argc, const char * argv[])
+{
     
     return 0;
+}
+
+char character(char start, int offset)
+{
+    if (!isalpha(start))
+    {
+        throw "invalidCharacterException\n";
+    }
+    else if (!isalpha((char)((int)start+offset)))
+    {
+        throw "invalidRangeException";
+    }
+    else
+        return (char)((int)start+offset);
 }
