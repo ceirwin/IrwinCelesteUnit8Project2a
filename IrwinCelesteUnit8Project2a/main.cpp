@@ -23,13 +23,13 @@ int main(int argc, const char * argv[])
 char character(char start, int offset)
 {
     if (!isalpha(start))
-    {
         throw "invalidCharacterException\n";
-    }
     else if (!isalpha((char)((int)start+offset)))
-    {
         throw "invalidRangeException";
-    }
+    else if(start<'A' && ((char)((int)start+offset))>'z')
+        throw "invalidCaseException";
+    else if(start>'z' && ((char)((int)start+offset))<'A')
+        throw "invalidCaseException";
     else
         return (char)((int)start+offset);
 }
