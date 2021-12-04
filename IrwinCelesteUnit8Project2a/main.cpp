@@ -9,6 +9,7 @@
 //12-03-2021
 
 #include <iostream>
+#include <string>
 
 using namespace std;
 
@@ -20,7 +21,7 @@ int main(int argc, const char * argv[])
     {
         cout<<endl <<character('a',1);
     }
-    catch (string ex)
+    catch (const char *ex)
     {
         cout<<endl <<ex;
     }
@@ -29,7 +30,7 @@ int main(int argc, const char * argv[])
     {
         cout<<endl <<character('a',-1);
     }
-    catch (string ex)
+    catch (const char *ex)
     {
         cout<<endl <<ex;
     }
@@ -38,7 +39,7 @@ int main(int argc, const char * argv[])
     {
         cout<<endl <<character('Z',-1);
     }
-    catch (string ex)
+    catch (const char *ex)
     {
         cout<<endl <<ex;
     }
@@ -47,7 +48,7 @@ int main(int argc, const char * argv[])
     {
         cout<<endl <<character('?', 5);
     }
-    catch (string ex)
+    catch (const char *ex)
     {
         cout<<endl <<ex;
     }
@@ -56,7 +57,7 @@ int main(int argc, const char * argv[])
     {
         cout<<endl <<character('A', 32);
     }
-    catch (string ex)
+    catch (const char *ex)
     {
         cout<<endl <<ex;
     }
@@ -70,9 +71,9 @@ char character(char start, int offset)
         throw "invalidCharacterException\n";
     else if (!isalpha((char)((int)start+offset)))
         throw "invalidRangeException";
-    else if(start<'A' && ((char)((int)start+offset))>'z')
+    else if(islower(start) && isupper((char)((int)start+offset)))
         throw "invalidCaseException";
-    else if(start>'z' && ((char)((int)start+offset))<'A')
+    else if(isupper(start) && islower((char)((int)start+offset)))
         throw "invalidCaseException";
     else
         return (char)((int)start+offset);
