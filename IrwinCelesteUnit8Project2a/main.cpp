@@ -67,14 +67,20 @@ int main(int argc, const char * argv[])
 
 char character(char start, int offset)
 {
+    //checks if start is a letter
     if (!isalpha(start))
         throw "invalidCharacterException\n";
+    //casting start to its ASCII value and adding the offset to it then casting that value to char gives me the target char
+    //checks if the target is a letter
     else if (!isalpha((char)((int)start+offset)))
         throw "invalidRangeException";
+    //checking that if start is a lower, target is not an upper
     else if(islower(start) && isupper((char)((int)start+offset)))
         throw "invalidCaseException";
+    //checking that if start is a upper, target is not an lower
     else if(isupper(start) && islower((char)((int)start+offset)))
         throw "invalidCaseException";
+    //returning target
     else
         return (char)((int)start+offset);
 }
