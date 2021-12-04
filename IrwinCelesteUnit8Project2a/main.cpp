@@ -4,11 +4,13 @@
 //
 //  Created by Celeste Irwin on 12/3/21.
 //
+//Celeste Irwin
+//CIS 1202 800
+//12-03-2021
 
 #include <iostream>
 
 int main(int argc, const char * argv[]) {
-    // insert code here...
-    std::cout << "Hello, World!\n";
+    
     return 0;
 }
